@@ -21,8 +21,13 @@ const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
 
-const AppProvider = ({ children, signInWithGoogle, user }) => {
+const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
   const [appUser, setAppUser] = useState({});
+
+  const handleSignOut = () => {
+    signOut();
+    setAppUser({});
+  };
 
   useEffect(() => {
     if (user) {
@@ -35,7 +40,7 @@ const AppProvider = ({ children, signInWithGoogle, user }) => {
   }, [user]);
 
   return (
-    <AppContext.Provider value={{ appUser, signInWithGoogle }}>
+    <AppContext.Provider value={{ appUser, signInWithGoogle, handleSignOut }}>
       {children}
     </AppContext.Provider>
   );
