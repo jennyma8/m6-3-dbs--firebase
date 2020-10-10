@@ -25,7 +25,7 @@ express()
   .use(bodyParser.json())
   .use(express.urlencoded({ extended: false }))
 
-  .post("/users", createUser)
   .get("/users", getUser)
+  .post("/users", createUser)
 
   .listen(PORT, () => console.log(`Listening on port ${PORT}`));

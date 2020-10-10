@@ -25,7 +25,7 @@ const App = () => {
         )}
       </StyledHeader>
       <StyledContainer>
-        Hi {appUser.displayName}!{message}
+        你好 {appUser.displayName}! {message}
       </StyledContainer>
     </StyledPageWrapper>
   );
