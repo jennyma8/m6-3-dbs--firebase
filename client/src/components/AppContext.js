@@ -38,7 +38,7 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
       //   photoURL: user.photoURL,
       // });
       fetch("/users", {
-        method: "post",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },

@@ -44,11 +44,11 @@ const getUser = async (email) => {
     .map((item) => data[item])
     .find((obj) => obj.email === email);
 
-  return dataValue;
+  return dataValue || false;
 };
 
 const createUser = async (req, res) => {
-  const returningUser = (await getUser(req.body.email)) || false;
+  const returningUser = await getUser(req.body.email);
   console.log(returningUser);
   if (returningUser) {
     res
@@ -69,4 +69,5 @@ const createUser = async (req, res) => {
 
 module.exports = {
   createUser,
+  getUser,
 };
