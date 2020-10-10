@@ -1,11 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Avatar from "./Avatar";
 
 import { AppContext } from "./AppContext";
 
 const App = () => {
-  const { appUser, signInWithGoogle, handleSignOut } = useContext(AppContext);
+  const { appUser, signInWithGoogle, handleSignOut, message } = useContext(
+    AppContext
+  );
 
   return (
     <StyledPageWrapper>
@@ -22,7 +24,9 @@ const App = () => {
           <button onClick={signInWithGoogle}>Sign In</button>
         )}
       </StyledHeader>
-      <StyledContainer>Hi {appUser.displayName}!</StyledContainer>
+      <StyledContainer>
+        Hi {appUser.displayName}!{message}
+      </StyledContainer>
     </StyledPageWrapper>
   );
 };
